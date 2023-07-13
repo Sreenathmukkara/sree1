@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Dev-stage') {
+            steps {
+                echo 'Hello Dev-stage'
+                build quietPeriod: 3, job: 'job1'
+            }
+        }
+        stage('Test-stage') {
+            steps {
+                echo 'Hello Test Env'
+                build quietPeriod: 3, job: 'job2'
+            }
+        }
+        stage('Prod-stage') {
+            steps {
+                echo 'Hello Prod Env'
+                build quietPeriod: 3, job: 'job3'
+            }
+        }
+    }
+}
